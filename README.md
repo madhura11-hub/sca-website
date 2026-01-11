@@ -14,3 +14,5 @@ This project contains the frontend code for the SCA website with a clean and res
 
 ## ▶️ How to Run
 Open index.html in any modern web browser.
+##Live Website
+ https://madhura11-hub.github.io/sca-website/
