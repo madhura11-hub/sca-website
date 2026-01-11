@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact – Sai Cricket Academy</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { background: #f4f6f8; }
+
+        header {
+            background: linear-gradient(90deg,#8b0000,#c1121f);
+            color: white;
+        }
+
+        .section { padding: 70px 20px; }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .btn-danger {
+            background: #8b0000;
+            border: none;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+        }
+
+        /* CHATBOT */
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            overflow: hidden;
+            font-size: 14px;
+            z-index: 9999;
+        }
+
+        .chatbot-header {
+            background: #8b0000;
+            color: #fff;
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .chatbot-body {
+            padding: 10px;
+            height: 220px;
+            overflow-y: auto;
+        }
+
+        .chatbot-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            border: none;
+            padding: 8px;
+            flex: 1;
+        }
+
+        .chatbot-input button {
+            background: #8b0000;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="text-center py-4">
+    <h1>📍 Contact Sai Cricket Academy</h1>
+    <nav>
+        <a href="index.html" class="text-white mx-2">Home</a>
+        <a href="gallery.html" class="text-white mx-2">Gallery</a>
+        <a href="video.html" class="text-white mx-2">Videos</a>
+        <a href="contact.html" class="text-white mx-2">Contact</a>
+    </nav>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- LOCATION -->
+            <div class="col-md-6">
+                <h3 class="text-danger mb-3">📍 Our Location</h3>
+                <p>
+                    <strong>Sai Cricket Academy</strong><br>
+                    Shrirampur – Near College Road<br>
+                    Maharashtra
+                </p>
+
+                <iframe
+                    src="https://www.google.com/maps?q=Sai%20Cricket%20Academy%20Shrirampur%20College%20Road&output=embed"
+                    width="100%" height="320"
+                    style="border:0; border-radius:12px;"
+                    allowfullscreen loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- FORM -->
+            <div class="col-md-6">
+                <h3 class="text-danger mb-3">📝 Enquiry Form</h3>
+
+                <div class="contact-card">
+                    <form
+                        action="https://formsubmit.co/saiacademyshrirampur2017@gmail.com"
+                        method="POST"
+                        onsubmit="handleSubmit(event)">
+
+                        <input type="hidden" name="_subject" value="New SCA Academy Enquiry">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+
+                        <div class="mb-3">
+                            <label class="form-label">Player Name</label>
+                            <input type="text" name="Name" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Age</label>
+                            <input type="number" name="Age" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="tel" name="Mobile" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Playing Role</label>
+                            <select name="Role" class="form-select" required>
+                                <option value="">Select role</option>
+                                <option>Batter</option>
+                                <option>Bowler</option>
+                                <option>Wicket Keeper</option>
+                                <option>All-rounder</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100">
+                            Submit Enquiry
+                        </button>
+                    </form>
+
+                    <p class="text-muted mt-2 text-center">
+                        Enquiry will be sent directly to coach
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="text-center py-3">
+    © 2026 Sai Cricket Academy
+</footer>
+
+<!-- CHATBOT -->
+<div class="chatbot">
+    <div class="chatbot-header">🤖 SCA Assistant</div>
+    <div class="chatbot-body" id="chatBody">
+        <p><strong>Bot:</strong> Hi 👋 Ask me about fees, timings, age, or admission.</p>
+    </div>
+    <div class="chatbot-input">
+        <input type="text" id="userInput" placeholder="Type your question...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+    }).then(() => {
+        window.location.href = "thankyou.html";
+    }).catch(() => {
+        alert("Submission failed. Please try again.");
+    });
+}
+
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const chat = document.getElementById("chatBody");
+    const text = input.value.trim();
+    if (!text) return;
+
+    chat.innerHTML += `<p><strong>You:</strong> ${text}</p>`;
+
+    let reply =
+        "Thank you for contacting Sai Cricket Academy 😊 Please fill the enquiry form and our coach will guide you.";
+
+    const msg = text.toLowerCase();
+
+    if (msg.includes("fees")) reply = "Fees depend on age and batch. Please submit the enquiry form 😊";
+    else if (msg.includes("timing")) reply = "We have morning and evening batches 😊";
+    else if (msg.includes("location")) reply = "We are located in Shrirampur near College Road 😊";
+    else if (msg.includes("join")) reply = "Please fill the enquiry form to join 😊";
+
+    setTimeout(() => {
+        chat.innerHTML += `<p><strong>Bot:</strong> ${reply}</p>`;
+        chat.scrollTop = chat.scrollHeight;
+    }, 400);
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>

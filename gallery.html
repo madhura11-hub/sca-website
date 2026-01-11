@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCA Gallery</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f4f6f8;
+        }
+
+        header {
+            background: linear-gradient(90deg,#8b0000,#c1121f);
+            color: white;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.4;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-card:hover .gallery-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-overlay {
+                opacity: 1;
+            }
+            .gallery-text {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="text-center py-4">
+    <h1>📸 Sai Cricket Academy Gallery</h1>
+    <nav>
+        <a href="index.html" class="text-white mx-2">Home</a>
+        <a href="gallery.html" class="text-white mx-2">Gallery</a>
+        <a href="video.html" class="text-white mx-2">Videos</a>
+        <a href="contact.html" class="text-white mx-2">Contact</a>
+    </nav>
+</header>
+
+<div class="container my-5">
+
+    <!-- PRACTICE -->
+    <h2 class="text-center text-danger mb-4">🏏 Practice Sessions</h2>
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/ground-running.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Players improving stamina and speed through running drills.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/warmup-drills.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Warm-up drills designed to prevent injuries and improve flexibility.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/team-group.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Team practice session focusing on coordination and discipline.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACHIEVEMENTS (OLD + NEW) -->
+    <h2 class="text-center text-danger mb-4">🏆 Coach & Achievements</h2>
+    <div class="row g-4 mb-5">
+
+        <!-- OLD IMAGES -->
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/coach-bouquet.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Head coach guiding players with professional training methods.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/coachmain.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Felicitation ceremony celebrating coaching excellence.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/coach-cake.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Celebration moments with players and coaching staff.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/medal-kid.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Young achievers receiving medals for outstanding performance.</p>
+            </div>
+        </div>
+
+        <!-- NEW a1–a6 IMAGES -->
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/a1.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Outstanding achievement by academy players.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/a2.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Hard work and discipline rewarded with success.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/a3.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Players recognized for exceptional performance.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/a4.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Proud moments of victory and growth.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/a5.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Celebrating milestones as one team.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="gallery-card">
+                <img src="images/a6.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Another proud chapter in SCA history.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TRIPS -->
+    <h2 class="text-center text-danger mb-4">🚌 Trips & Tours</h2>
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/trip219.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Team travel experience that builds bonding and exposure.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/tripn2.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Outstation tournament providing competitive experience.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/tripn3.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Memorable moments during academy tours.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="gallery-card">
+                <img src="images/tripnashik1.jpg">
+                <div class="gallery-overlay"></div>
+                <p class="gallery-text">Nashik tour focused on matches, learning, and bonding.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="text-center py-3" style="background:#222; color:white;">
+    © 2026 Sai Cricket Academy
+</footer>
+
+</body>
+</html>

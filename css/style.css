@@ -1,0 +1,232 @@
+/* ===== GLOBAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    animation: fadeIn 0.8s ease-in;
+    scroll-behavior: smooth;
+}
+
+/* PAGE FADE-IN */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(90deg, #8b0000, #c1121f);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 14px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+/* UNDERLINE ANIMATION */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #ffd166;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.section h2 {
+    color: #8b0000;
+    margin-bottom: 25px;
+}
+
+/* ===== CARDS (VIDEOS / IMAGES) ===== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.card img,
+.card video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ===== GALLERY ANIMATIONS ===== */
+
+/* stagger animation */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* IMAGE ZOOM */
+.card img {
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.15);
+}
+
+/* DARK OVERLAY */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+/* IMAGE TITLE */
+.card span {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+
+.card:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== CHATBOT ===== */
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    overflow: hidden;
+    font-size: 14px;
+    z-index: 9999;
+}
+
+.chatbot-header {
+    background: #8b0000;
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chatbot-body {
+    padding: 10px;
+    height: 220px;
+    overflow-y: auto;
+}
+
+.chatbot-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.chatbot-input input {
+    border: none;
+    padding: 8px;
+    flex: 1;
+    outline: none;
+}
+
+.chatbot-input input:focus {
+    background: #f9f9f9;
+}
+
+.chatbot-input button {
+    background: #8b0000;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+}
